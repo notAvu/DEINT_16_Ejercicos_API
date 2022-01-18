@@ -11,31 +11,50 @@ namespace DEINT_16_Ejercicios_API_DAL
     public class GestoraPersonasApi
     {
         string ApiBaseUrl { get; set; }
-        public GestoraPersonasApi() 
+        public GestoraPersonasApi()
         {
             ApiBaseUrl = "https://elnombrequetuquieras.azurewebsites.net/api/";
         }
         public async Task<List<clsPersona>> getListadoPersonasDAL()
         {
-            List<clsPersona> personas;
+            List<clsPersona> personas = new List<clsPersona>();
             Uri apiUri = new Uri($"{ApiBaseUrl}personas");
-            HttpClient httpClient= new HttpClient();
+            HttpClient httpClient = new HttpClient();
             HttpResponseMessage response;
             string jsonResponse;
-            try {
+            try
+            {
                 response = await httpClient.GetAsync(apiUri);
-                if (response.IsSuccessStatusCode) 
-                { 
+                if (response.IsSuccessStatusCode)
+                {
                     jsonResponse = await httpClient.GetStringAsync(apiUri);
                     httpClient.Dispose();
-                    personas=JsonConvert.DeserializeObject<List<clsPersona>>(jsonResponse);
+                    personas = JsonConvert.DeserializeObject<List<clsPersona>>(jsonResponse);
                 }
             }
-            catch (Exception e) 
+            catch (Exception e)
             {
-                throw e;
+                throw e;//TODO implementar mensaje de error
             }
-            return null;
+            return personas;
+        }
+        public async Task BorrarPersonaDAL(int idPersona)
+        {
+            Uri apiUri = new Uri($"{ApiBaseUrl}personas/{idPersona}");
+            HttpClient httpClient = new HttpClient();
+            HttpResponseMessage response;
+            try
+            {
+                response = await httpClient.DeleteAsync(apiUri);
+                if (response.IsSuccessStatusCode)
+                {
+                    httpClient.Dispose();
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;//TODO implementar mensaje de error
+            }
         }
     }
 }

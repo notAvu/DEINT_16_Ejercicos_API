@@ -11,17 +11,19 @@
         <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
             <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
         </Frame>
-        <ListView>
+        <StackLayout>
+            <ListView ItemsSource="{Binding ListadoPersonas}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackLayout Orientation="Horizontal">
-                        <Image/>
-                        <Label/>
+                        <Image Source="{Binding Foto}"/>
+                        <Label Text="{Binding Nombre}"/>
                     </StackLayout>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button x:Name="listBtn" Text="Listar personas"/>
+        </StackLayout>
+        <Button x:Name="listBtn" Text="Listar personas" Command="{Binding CargarLista}"/>
     </StackLayout>
 
 </ContentPage>

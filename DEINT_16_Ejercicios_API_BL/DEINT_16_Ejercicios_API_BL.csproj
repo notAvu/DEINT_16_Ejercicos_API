@@ -8,4 +8,8 @@
     <PackageReference Include="System.Net.Http" Version="4.3.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DEINT_16_Ejercicios_API_DAL\DEINT_16_Ejercicios_API_DAL.csproj" />
+  </ItemGroup>
+
 </Project>
