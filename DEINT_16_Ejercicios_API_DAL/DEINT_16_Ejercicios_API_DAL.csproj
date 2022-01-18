@@ -4,4 +4,12 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DEINT_16_Ejercicios_API_Entidades\DEINT_16_Ejercicios_API_Entidades.csproj" />
+  </ItemGroup>
+
 </Project>
