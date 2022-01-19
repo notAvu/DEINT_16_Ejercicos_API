@@ -17,16 +17,20 @@
                     <DataTemplate>
                         <ViewCell>
                             <Grid Padding="10">
-                                <!--<Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                </Grid.RowDefinitions>-->
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="120" />
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
-                                <Image x:Name="memAVI" Grid.Column="0" Source="{Binding Foto}" Aspect="AspectFill"/>
-                                <Label Grid.Column="1" Text="{Binding Nombre}"/>
+                                <Image Grid.Column="0" Source="{Binding Foto}" Aspect="AspectFill"/>
+                                <Label Grid.Column="1">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding Nombre}"/>
+                                            <Span Text=" "/>
+                                            <Span Text="{Binding Apellido}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
