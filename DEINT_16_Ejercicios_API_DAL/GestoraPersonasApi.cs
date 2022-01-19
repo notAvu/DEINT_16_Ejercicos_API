@@ -38,7 +38,7 @@ namespace DEINT_16_Ejercicios_API_DAL
             }
             return personas;
         }
-        public async Task BorrarPersonaDAL(int idPersona)
+        public async Task<System.Net.HttpStatusCode> BorrarPersonaDAL(int idPersona)
         {
             Uri apiUri = new Uri($"{ApiBaseUrl}personas/{idPersona}");
             HttpClient httpClient = new HttpClient();
@@ -55,6 +55,7 @@ namespace DEINT_16_Ejercicios_API_DAL
             {
                 throw e;//TODO implementar mensaje de error
             }
+            return response.StatusCode;
         }
     }
 }

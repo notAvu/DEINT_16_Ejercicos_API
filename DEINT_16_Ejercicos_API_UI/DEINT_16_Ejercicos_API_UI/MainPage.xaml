@@ -9,10 +9,10 @@
             <vm:ViewModelList/>
         </StackLayout.BindingContext>
         <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
-            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+            <Label Text="No se ve el activityIndicator" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
         </Frame>
         <StackLayout>
-            <ListView ItemsSource="{Binding ListadoPersonas}">
+            <ListView ItemsSource="{Binding ListadoPersonas}" SelectedItem="{Binding PersonaSeleccionada, Mode=TwoWay}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -26,7 +26,7 @@
                                     <Label.FormattedText>
                                         <FormattedString>
                                             <Span Text="{Binding Nombre}"/>
-                                            <Span Text=" "/>
+                                            <Span Text=" " />
                                             <Span Text="{Binding Apellido}"/>
                                         </FormattedString>
                                     </Label.FormattedText>
@@ -36,8 +36,10 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <ActivityIndicator IsRunning="{Binding Indicator}"/>
         </StackLayout>
         <Button x:Name="listBtn" Text="Listar personas" Command="{Binding CargarLista}"/>
+        <Button x:Name="deleteBtn" Text="Borrar persona" Command="{Binding BorrarPersona}" />
     </StackLayout>
 
 </ContentPage>

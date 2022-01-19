@@ -18,9 +18,9 @@ namespace DEINT_16_Ejercicios_API_BL
         {
            return await gestoraDal.getListadoPersonasDAL();
         }
-        public async Task BorrarPersonaBL(int idTarget) 
+        public async Task<System.Net.HttpStatusCode> BorrarPersonaBL(int idTarget) 
         {
-            await gestoraDal.BorrarPersonaDAL(idTarget);
+           return await gestoraDal.BorrarPersonaDAL(idTarget);
         }
     }
 }
