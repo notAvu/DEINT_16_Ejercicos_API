@@ -13,17 +13,28 @@
         </Frame>
         <StackLayout>
             <ListView ItemsSource="{Binding ListadoPersonas}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackLayout Orientation="Horizontal">
-                        <Image Source="{Binding Foto}"/>
-                        <Label Text="{Binding Nombre}"/>
-                    </StackLayout>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <!--<Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>-->
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="120" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Image x:Name="memAVI" Grid.Column="0" Source="{Binding Foto}" Aspect="AspectFill"/>
+                                <Label Grid.Column="1" Text="{Binding Nombre}"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
         <Button x:Name="listBtn" Text="Listar personas" Command="{Binding CargarLista}"/>
     </StackLayout>
 
 </ContentPage>
+

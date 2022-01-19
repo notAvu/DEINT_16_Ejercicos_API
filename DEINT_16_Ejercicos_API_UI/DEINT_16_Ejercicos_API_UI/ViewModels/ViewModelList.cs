@@ -35,7 +35,12 @@ namespace DEINT_16_Ejercicos_API_UI.ViewModels
 
         private void CargarLista_Execute()
         {
-            ListadoPersonas = gestora.ListadoCompletoBL().Result;
+            CargarListaPersonas();
+        }
+
+        private async void CargarListaPersonas()
+        {
+            ListadoPersonas = await gestora.ListadoCompletoBL();
         }
         #endregion
     }

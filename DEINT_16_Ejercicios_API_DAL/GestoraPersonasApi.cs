@@ -19,7 +19,7 @@ namespace DEINT_16_Ejercicios_API_DAL
         {
             List<clsPersona> personas = new List<clsPersona>();
             Uri apiUri = new Uri($"{ApiBaseUrl}personas");
-            HttpClient httpClient ;
+            HttpClient httpClient = new HttpClient();
             HttpResponseMessage response;
             string jsonResponse;
             try
